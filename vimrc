@@ -16,6 +16,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " appearance
 Plugin 'nviennot/molokai'
+Plugin 'flazz/vim-colorschemes'
 
 " editing
 Plugin 'godlygeek/tabular'
@@ -53,9 +54,9 @@ Plugin 'quentindecock/vim-cucumber-align-pipes'
 Plugin 'vim-airline/vim-airline'
 Plugin 'mattn/gist-vim'
 Plugin 'mattn/webapi-vim'
-Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tomtom/quickfixsigns_vim'
+Plugin 'vim-syntastic/syntastic'
 
 " Plugins you want just for yourself go here
 if filereadable(expand("~/.custom.vim-plugins"))
@@ -157,10 +158,23 @@ au CursorHold * checktime
 """""""""""""""""""""""""
 " Keybindings
 """""""""""""""""""""""""
+
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+nnoremap :W :update
+
+noremap <Left> h
+noremap <Right> l
+noremap <Up> k
+noremap <Down> j
+"jhinoremap <Up> k
+"inoremap <Down> j
+"inoremap <Left> h
+
+"inoremap <Right> l
 
 let mapleader=","
 let localmapleader=","
@@ -198,10 +212,6 @@ noremap K k
 
 " Resize window splits
 " TODO Fix mousewheel
-nnoremap <Up>    3<C-w>-
-nnoremap <Down>  3<C-w>+
-nnoremap <Left>  3<C-w><
-nnoremap <Right> 3<C-w>>
 
 nnoremap _ :split<cr>
 nnoremap \| :vsplit<cr>
@@ -235,6 +245,7 @@ let NERDTreeHighlightCursorline=1
 let NERDTreeShowBookmarks=1
 let NERDTreeShowFiles=1
 
+let g:NERDTreeNodeDelimiter = "\u00a0"
 map <silent> <Leader>gd :Gdiff<CR>
 map <silent> <Leader>gb :Gblame<CR>
 map <silent> <Leader>gg :Gbrowse<CR>
@@ -249,13 +260,26 @@ let g:yankring_history_dir = '$HOME/.vim'
 let g:yankring_manual_clipboard_check = 0
 
 let g:syntastic_enable_signs = 1
-let g:syntastic_mode_map = { 'mode': 'active',
+let g:syntastic_mode_map = { 'mode': 'passive',
                            \ 'active_filetypes': [],
                            \ 'passive_filetypes': ['c', 'scss', 'html', 'scala'] }
 let g:syntastic_ruby_checkers = ['rubocop']
-let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_css_checkers = ['stylelint']
 let g:syntastic_less_checkers = ['stylelint']
+
+
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exe = 'npm run lint --'
+
+
 
 let g:quickfixsigns_classes=['qfl', 'vcsdiff', 'breakpoints']
 
