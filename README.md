@@ -1,11 +1,20 @@
-# Crowdtap dotfile config
+# Forked Crowdtap dotfile config
+This repo is a fork from the awesome team at crowdtap.. 
+
+Special thanks to the best dev team ever ( i know im missing someone )
+- [kareem Kouddous] (https://github.com/kareemk)
+- [Quentin Decock] (https://github.com/quentindecock)
+- [Tom Hosford] (https://github.com/TomHoss)
+- [Arjun Anand] (https://github.com/yodarjun)
+- [Jon Storer] (https://github.com/jonstorer)
+
 
 ## Why a common dotfile config?
 
 * To be on the same page
 * Unleash TMUX and VIM productivity power
 
-![Hamburger](http://www.passportmagazine.com/blog/uploads/DeathbyHamburger.jpg)
+![Hamburger](http://giphygifs.s3.amazonaws.com/media/5y2zBKjMF1TEI/giphy.gif)
 
 ## What's inside?
 * A solid VIM config
