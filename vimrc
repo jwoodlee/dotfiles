@@ -76,12 +76,14 @@ set nocursorline
 set number
 set list!                       " Display unprintable characters
 set listchars=tab:▸\ ,trail:•,extends:»,precedes:«
+set background=dark
 if $TERM =~ '256color'
   set t_Co=256
 elseif $TERM =~ '^xterm$'
   set t_Co=256
 endif
 colorscheme molokai
+:highlight Comment ctermfg=557100
 
 " Misc
 set hidden                      " Don't abandon buffers moved to the background
