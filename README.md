@@ -130,3 +130,7 @@ I would like to thank these guys, this config was largely inspired by their work
 
 - [Joshua Clayton](https://github.com/joshuaclayton/dotfiles)
 - [Nicolas Viennot](https://github.com/nviennot/vim-config)
+
+
+## More Tips
+- https://devhints.io/tmux
