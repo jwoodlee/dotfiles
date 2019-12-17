@@ -50,6 +50,5 @@ export NVM_DIR="$HOME/.nvm"
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [[ -f /Users/jwoodlee/.nvm/versions/node/v8.9.3/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/jwoodlee/.nvm/versions/node/v8.9.3/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-export PATH="/usr/local/opt/gettext/bin:$PATH"
+export PATH="/usr/local/opt/gettext/bin:$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
