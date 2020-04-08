@@ -57,6 +57,13 @@ Plugin 'mattn/webapi-vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tomtom/quickfixsigns_vim'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'prettier/vim-prettier'
+Plugin 'shmargum/vim-sass-colors'
+Plugin 'sheerun/vim-polyglot'
+
+
+" node related
+Plugin 'majutsushi/tagbar'
 
 " Plugins you want just for yourself go here
 if filereadable(expand("~/.custom.vim-plugins"))
@@ -105,11 +112,14 @@ noremap k gk
 noremap j gj
 
 " Formatting, indentation and tabbing
-set autoindent smartindent
+set autoindent
 set smarttab                    " Make <tab> and <backspace> smarter
-set expandtab
+
 set tabstop=2
 set shiftwidth=2
+set expandtab
+
+
 set textwidth=80
 set formatoptions-=t formatoptions+=croql
 
@@ -240,7 +250,7 @@ let g:gundo_close_on_revert=1
 " TODO Merge the NERDTreeFind with Toggle inteilligently.
 nnoremap <C-g> :NERDTreeToggle<cr>
 nnoremap <C-f> :NERDTreeFind<cr>
-
+nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>
 let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$', '\.o$',
                    \ '\.so$', '\.egg$', '^\.git$', '\.cmi', '\.cmo' ]
 let NERDTreeHighlightCursorline=1
@@ -347,4 +357,6 @@ function! ToggleErrorPanel()
   endif
 endfunction
 
+set foldmethod=indent
+set foldlevel=20
 nnoremap <leader>er :call ToggleErrorPanel()<CR>
