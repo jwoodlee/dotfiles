@@ -7,7 +7,7 @@ declare -a dotfiles=(ackrc editrc gemrc gitconfig-ct gvimrc irb irbrc.d jshintrc
 if [ ! -d 'zprezto' ]; then
   echo "Installing zprezto..."
   git clone -q --recursive https://github.com/sorin-ionescu/prezto.git zprezto
-  git clone -q --recursive https://github.com/belak/prezto-contrib.git zprezto\contrib
+  git clone -q --recursive https://github.com/belak/prezto-contrib.git zprezto/contrib
 else
   echo "Updating zprezto..."
   cd zprezto
