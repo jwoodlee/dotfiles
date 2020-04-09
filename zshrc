@@ -30,8 +30,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zshrc-mine" ]]; then
   source "${ZDOTDIR:-$HOME}/.zshrc-mine"
 fi
 # Customize to your needs...
-#export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.rbenv/bin:$PATH"
 export PATH="./scripts:$PATH"
 export ARDUINO_PATH="/applications/"
 eval "$(rbenv init -)"
