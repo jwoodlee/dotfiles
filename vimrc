@@ -10,10 +10,6 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-"""""""""""""""""""""""""
-" Vim Plugins
-"""""""""""""""""""""""""
-
 " appearance
 Plugin 'nviennot/molokai'
 Plugin 'flazz/vim-colorschemes'
@@ -65,7 +61,6 @@ Plugin 'sheerun/vim-polyglot'
 " node related
 Plugin 'majutsushi/tagbar'
 
-" Plugins you want just for yourself go here
 if filereadable(expand("~/.custom.vim-plugins"))
   source ~/.custom.vim-plugins
 endif
