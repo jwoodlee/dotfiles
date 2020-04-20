@@ -107,7 +107,7 @@ noremap j gj
 
 " Formatting, indentation and tabbing
 set autoindent
-set smarttab                    " Make <tab> and <backspace> smarter
+"set smarttab                    " Make <tab> and <backspace> smarter
 
 set tabstop=2
 set shiftwidth=2
