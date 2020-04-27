@@ -2,7 +2,7 @@
 # Installs our dotfiles
 #
 
-declare -a dotfiles=(ackrc editrc gemrc gitconfig-ct gvimrc irb irbrc.d jshintrc ops rdebugrc rubocop.yml rvmrc stylelintrc tmux tmux.conf vim vimrc zlogin zlogout zprezto zpreztorc zprofile zsh-themes zshenv zshrc)
+declare -a dotfiles=(dir_colors ackrc editrc gemrc gitconfig-ct gvimrc irb irbrc.d jshintrc ops rdebugrc rubocop.yml rvmrc stylelintrc tmux tmux.conf vim vimrc zlogin zlogout zprezto zpreztorc zprofile zsh-themes zshenv zshrc)
 
 if [ ! -d 'zprezto' ]; then
   echo "Installing zprezto..."

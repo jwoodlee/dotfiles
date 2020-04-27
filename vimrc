@@ -129,7 +129,7 @@ set formatoptions-=t formatoptions+=croql
 set viminfo=%100,'100,/100,h,\"500,:1000,n~/.vim/viminfo
 
 " ctags: recurse up to home to find tags.
-set tags+=tags;$HOME
+set tags+=./tags,tags,$HOME/tags;$HOME
 
 " Undo
 set undolevels=10000
