@@ -32,35 +32,39 @@ fi
 # Customize to your needs...
 export PATH="$HOME/.local/bin:$HOME/.rbenv/bin:$PATH"
 export PATH="./scripts:$PATH"
-export ARDUINO_PATH="/applications/"
-eval "$(rbenv init -)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PATH="/usr/local/opt/gettext/bin:$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
 autoload -U add-zsh-hook
-load-nvmrc() {
-local node_version="$(nvm version)"
-local nvmrc_path="$(nvm_find_nvmrc)"
-
-if [ -n "$nvmrc_path" ]; then
-  local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-  if [ "$nvmrc_node_version" = "N/A" ]; then
-    nvm install
-  elif [ "$nvmrc_node_version" != "$node_version" ]; then
-    nvm use >/dev/null
-  fi
-elif [ "$node_version" != "$(nvm version default)" ]; then
-  #echo "Reverting to nvm default version"
-  nvm use default
-fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
-
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+
+###############locals
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
+
+
+
+export MQ_URL=amqp://cdu-dev:cduisawesome@10.76.147.118:5672/cdu-dev-jbw
+export MQ_SUBSCRIBER_URL=amqp://cdu-dev:cduisawesome@10.76.147.118:5672/cdu-dev-jbw
+export MQ_PUBLISHER_URL=amqp://cdu-dev:cduisawesome@10.76.147.118:5672/cdu-dev-jbw
+export DB_USER=postgres
+export DB_PWD=''
+
+
+alias pg_start='su postgres -c "/usr/bin/pg_ctl -D /var/tmp/pgsql/data -l logfile start"'
+
+
+
+export LIBDIR="/usr/pgsql-11/lib"
+export PKGLIBDIR="$PKGLIBDIR:/usr/pgsql-11/lib"
+export SHAREDIR="$SHAREDIR:/usr/pgsql-11/share"
+
+export libdir="/usr/pgsql-11/lib"
+
+export PATH="$HOME:/usr/pgsql-11/bin:$PATH"
