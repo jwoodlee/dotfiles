@@ -1,66 +1,48 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
-autoload -U compinit
-compinit
-
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+	source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
+source "/Users/adcbww9/.aliasrc"
 
-[[ -s "${ZDOTDIR:-$HOME}/.tmuxinator/scripts/tmuxinator" ]] && source "${ZDOTDIR:-$HOME}/.tmuxinator/scripts/tmuxinator"
-
-if [[ -s "${ZDOTDIR:-$HOME}/.aliasrc" ]]; then
-  source "${ZDOTDIR:-$HOME}/.aliasrc"
-fi
+export no_proxy="127.0.0.1,localhost,bnymellon.net,bnymcloud.net"
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl@1.1"
 
 bindkey -M vicmd '/' history-incremental-pattern-search-backward
 bindkey -M vicmd '?' history-incremental-pattern-search-forward
 bindkey -M viins '^R' history-incremental-pattern-search-backward
 bindkey -M viins '^F' history-incremental-pattern-search-forward
-
 echo -e "\033]P44040ff\033\\"
-
-if [[ -s "${ZDOTDIR:-$HOME}/.zshrc-mine" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zshrc-mine"
-fi
 # Customize to your needs...
-export PATH="$HOME/.local/bin:$HOME/.rbenv/bin:$PATH"
+
+
+export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="./scripts:$PATH"
-export ARDUINO_PATH="/applications/"
-eval "$(rbenv init -)"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-export PATH="/usr/local/opt/gettext/bin:$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
-autoload -U add-zsh-hook
-load-nvmrc() {
-local node_version="$(nvm version)"
-local nvmrc_path="$(nvm_find_nvmrc)"
-
-if [ -n "$nvmrc_path" ]; then
-  local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-  if [ "$nvmrc_node_version" = "N/A" ]; then
-    nvm install
-  elif [ "$nvmrc_node_version" != "$node_version" ]; then
-    nvm use >/dev/null
-  fi
-elif [ "$node_version" != "$(nvm version default)" ]; then
-  #echo "Reverting to nvm default version"
-  nvm use default
-fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
-
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+
+
+username="$(whoami | tr '[:lower:]' '[:upper:]')"
+password="$(security find-generic-password -gwa $(whoami) -s curl)"
+#export http_proxy=http://AMS\\$username:$password@bnym-proxy.bnymellon.net:8080
+export http_proxy=http://bnym-proxy.bnymellon.net:8080
+
+
+export NO_PROXY=.bnymellon.net
+export https_proxy=$http_proxy
+export all_proxy=$http_proxy
+export HTTP_PROXY=$http_proxy
+export HTTPS_PROXY=$http_proxy
+export ALL_PROXY=$http_proxy
+
+#https://teamtreehouse.com/community/what-does-rbenv-rehash-mean-exactly
+#eval "$(rbenv init -)"
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+
+
+export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
+
+
+export GEM_HOME="$HOME/.gems/ruby/2.6.0/gems"
+export GEM_PATH="$GEM_HOME"

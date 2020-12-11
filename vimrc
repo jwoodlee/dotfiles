@@ -11,8 +11,10 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " appearance
+Plugin 'vim-syntastic/syntastic'
 Plugin 'nviennot/molokai'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'scrooloose/nerdtree'
 
 " editing
 Plugin 'godlygeek/tabular'
@@ -27,7 +29,6 @@ Plugin 'tmhedberg/matchit'
 Plugin 'kien/ctrlp.vim'
 Plugin 'ervandew/supertab'
 Plugin 'rking/ag.vim'
-Plugin 'scrooloose/nerdtree'
 
 " languages
 Plugin 'AndrewRadev/vim-eco'
@@ -35,27 +36,25 @@ Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'groenewege/vim-less'
 Plugin 'pangloss/vim-javascript'
 Plugin 'jelera/vim-javascript-syntax'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'nelstrom/vim-textobj-rubyblock'
-Plugin 'yaymukund/vim-rabl'
 Plugin 'tpope/vim-endwise'
 
 " frameworks
 Plugin 'tpope/vim-rails'
-Plugin 'burnettk/vim-angular'
+"Plugin 'burnettk/vim-angular'
 Plugin 'othree/html5.vim'
 Plugin 'quentindecock/vim-cucumber-align-pipes'
 
 " misc
 Plugin 'vim-airline/vim-airline'
-Plugin 'mattn/gist-vim'
-Plugin 'mattn/webapi-vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tomtom/quickfixsigns_vim'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'prettier/vim-prettier'
-Plugin 'shmargum/vim-sass-colors'
-Plugin 'sheerun/vim-polyglot'
+"deadPlugin 'mattn/gist-vim'
+"deadPlugin 'mattn/webapi-vim'
+"deadlugin 'tpope/vim-fugitive'
+"deadlugin 'tomtom/quickfixsigns_vim'
+"deadlugin 'vim-syntastic/syntastic'
+"deadlugin 'prettier/vim-prettier'
+"deadlugin 'shmargum/vim-sass-colors'
+"deadlugin 'sheerun/vim-polyglot'
 
 
 " node related
@@ -250,6 +249,7 @@ let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$', '\.o$',
 let NERDTreeHighlightCursorline=1
 let NERDTreeShowBookmarks=1
 let NERDTreeShowFiles=1
+let NERDTreeShowHiddenFiles=1
 
 let g:NERDTreeNodeDelimiter = "\u00a0"
 map <silent> <Leader>gd :Gdiff<CR>
@@ -280,7 +280,8 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_close = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exe = 'npm run lint --'
@@ -289,7 +290,8 @@ let g:syntastic_javascript_eslint_exe = 'npm run lint --'
 
 let g:quickfixsigns_classes=['qfl', 'vcsdiff', 'breakpoints']
 
-set laststatus=2
+"https://github.com/vim-syntastic/syntastic/issues/1577
+"set laststatus=2
 
 let g:ctrlp_map = '<Leader>.'
 let g:ctrlp_custom_ignore = '/\.\|\.o\|\.so'
