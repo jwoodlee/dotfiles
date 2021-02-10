@@ -4,7 +4,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 source "/Users/adcbww9/.aliasrc"
 
-export no_proxy="127.0.0.1,localhost,bnymellon.net,bnymcloud.net"
+export no_proxy="127.0.0.1:3000,127.0.0.1,localhost,localhost:3000,bnymellon.net,.bnymellon.net,bnymcloud.net"
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl@1.1"
 
 bindkey -M vicmd '/' history-incremental-pattern-search-backward
@@ -22,12 +22,12 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 
 username="$(whoami | tr '[:lower:]' '[:upper:]')"
-password="$(security find-generic-password -gwa $(whoami) -s curl)"
-#export http_proxy=http://AMS\\$username:$password@bnym-proxy.bnymellon.net:8080
+#password="$(security find-generic-password -gwa $(whoami) -s curl)"
+#export http_proxy=http://AMS%5C%5C$username:$password@bnym-proxy.bnymellon.net:8080
 export http_proxy=http://bnym-proxy.bnymellon.net:8080
 
 
-export NO_PROXY=.bnymellon.net
+export NO_PROXY=$no_proxy
 export https_proxy=$http_proxy
 export all_proxy=$http_proxy
 export HTTP_PROXY=$http_proxy
